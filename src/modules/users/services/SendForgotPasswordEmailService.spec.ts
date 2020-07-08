@@ -40,14 +40,6 @@ describe('SendForgotPasswordEmailService', () => {
   });
 
   it('should not be able to revover a non-existing user password', async () => {
-    const fakeUserRepository = new FakeUsersRepository();
-    const fakeMailProvider = new FakeMailProvider();
-
-    const sendForgotPassowdEmail = new SendForgotPasswordEmailService(
-      fakeUserRepository,
-      fakeMailProvider,
-    );
-
     await expect(
       sendForgotPassowdEmail.execute({
         email: 'johndoe@example.com',
